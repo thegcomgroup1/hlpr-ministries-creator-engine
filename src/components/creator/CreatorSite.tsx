@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site";
 import { AnnouncementBar } from "./AnnouncementBar";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
@@ -14,6 +15,12 @@ import { Impact } from "./Impact";
 import { Footer } from "./Footer";
 
 export function CreatorSite() {
+  const hasPillars = siteConfig.messagePillars.length > 0;
+  const hasPlatforms = siteConfig.platforms.length > 0;
+  const hasEpisodes = siteConfig.episodes.length > 0;
+  const hasGallery = siteConfig.contentGallery.length > 0;
+  const hasImpact = siteConfig.impact.length > 0;
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans antialiased">
       <AnnouncementBar />
@@ -21,15 +28,15 @@ export function CreatorSite() {
       <main>
         <Hero />
         <SignatureMessage />
-        <MessagePillars />
-        <Platforms />
+        {hasPillars && <MessagePillars />}
+        {hasPlatforms && <Platforms />}
         <FeaturedContent />
-        <Episodes />
-        <ContentGallery />
-        <EmailCapture />
-        <Speaking />
-        <Give />
-        <Impact />
+        {hasEpisodes && <Episodes />}
+        {hasGallery && <ContentGallery />}
+        {siteConfig.emailCapture.enabled && <EmailCapture />}
+        {siteConfig.speaking.enabled && <Speaking />}
+        {siteConfig.give.enabled && <Give />}
+        {hasImpact && <Impact />}
       </main>
       <Footer />
     </div>
