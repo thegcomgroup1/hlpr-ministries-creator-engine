@@ -38,7 +38,18 @@ export function Footer() {
       </div>
       <div className="border-t border-ink-foreground/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex flex-wrap items-center justify-between gap-3 text-xs text-ink-foreground/60">
-          <p>© {new Date().getFullYear()} {creator.name}. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {creator.name}. All rights reserved.{" "}
+            ·{" "}
+            <a
+              href="https://ministries.hlpr.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ember transition-colors"
+            >
+              Powered by HLPR Ministries
+            </a>
+          </p>
           <p>{creator.brands.filter(Boolean).join(" · ")}</p>
         </div>
       </div>
