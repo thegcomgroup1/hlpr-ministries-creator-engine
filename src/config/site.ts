@@ -78,6 +78,9 @@ export const siteConfig = {
 
   featuredContent: {
     kind: "podcast" as "podcast" | "youtube",
+    // Auto-pulls the newest upload from this YouTube channel (starts with "UC…").
+    // When set, it overrides the title/summary/embed below. Leave "" to use manual values.
+    youtubeChannelId: "" as string,
     title: "[Latest episode/message title]",
     summary: "[1–2 sentence hook that makes a first-time visitor want to hit play.]",
     embedUrl: "",
